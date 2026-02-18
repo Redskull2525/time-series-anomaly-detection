@@ -1,165 +1,196 @@
-📈 Time Series Anomaly Detection using Stock Market Data
-🔍 Project Overview
 
-This project focuses on detecting anomalies in stock market time series data of Reliance Industries using statistical and machine learning techniques.
 
-Historical daily stock data (last 5 years) is dynamically downloaded from:
+# 📈 Time Series Anomaly Detection using Stock Market Data
+
+## 🔍 Overview
+
+This project focuses on detecting anomalies in historical stock market time series data of **Reliance Industries** using both statistical and machine learning techniques.
+
+Daily stock data (last 5 years) is dynamically fetched from:
 
 📊 Yahoo Finance
 
-The project demonstrates a complete end-to-end data science pipeline:
+The project demonstrates a complete end-to-end data science workflow:
 
-Data Collection → EDA → Statistical Detection → ML Detection → Visualization → Financial Interpretation 🚀
+> **Data Collection → EDA → Statistical Detection → ML Detection → Visualization → Financial Interpretation**
 
-🎯 Objective
+---
 
-Identify abnormal price movements
+## 🎯 Problem Statement
 
-Detect unusual trading volume spikes
+Financial markets experience abnormal price movements and unusual trading volume spikes due to:
 
-Compare statistical vs ML-based anomaly detection
+* Earnings announcements
+* Market crashes
+* Economic policy changes
+* Global news events
 
-Interpret financial significance of detected anomalies
+The objective of this project is to:
 
-📊 Dataset Features
+* Identify abnormal price behavior
+* Detect unusual trading volume patterns
+* Compare statistical vs machine learning-based anomaly detection
+* Interpret potential financial significance of anomalies
 
-The dataset includes:
+---
 
-Date
+## 📊 Dataset Details
 
-Open
+Data Source: Yahoo Finance
+Stock: Reliance Industries (RELIANCE.NS)
+Time Range: Last 5 Years (Daily Frequency)
 
-High
+### Features Used:
 
-Low
+* Date
+* Open
+* High
+* Low
+* Close
+* Volume
 
-Close
+Data is fetched dynamically using `yfinance`, ensuring reproducibility without storing raw datasets in the repository.
 
-Volume
+---
 
-Data is fetched dynamically using yfinance.
+## 📌 Data Preprocessing
 
-📌 Data Understanding
+* Converted Date column to datetime format
+* Sorted data chronologically
+* Calculated Daily Returns
+* Computed 20-day Rolling Volatility
+* Handled missing values
 
-OHLC structure analyzed
+---
 
-Trading volume interpreted as market participation indicator
+## 📈 Exploratory Data Analysis (EDA)
 
-Date converted to datetime format
+The following analyses were performed:
 
-Data sorted chronologically
+* Closing Price Time Series Visualization
+* Trading Volume Trend Analysis
+* Daily Return Distribution
+* Volatility Pattern Analysis
+* Identification of visually noticeable spikes and crash periods
 
-📈 Exploratory Data Analysis (EDA)
+---
 
-Closing Price Time Series Plot
+## 🧪 Anomaly Detection Techniques
 
-Volume Time Series Plot
+### 🔹 Statistical Methods
 
-Daily Return Calculation
+1. **Z-Score Method**
+   Detects outliers beyond a selected standard deviation threshold.
 
-Return Distribution Analysis
+2. **IQR (Interquartile Range) Method**
+   Identifies extreme return values outside the interquartile range.
 
-Rolling Volatility Analysis
+3. **Moving Average Deviation**
+   Flags abnormal deviations from rolling mean.
 
-Identification of spikes and crash periods
+---
 
-🧪 Anomaly Detection Methods
-🔹 Statistical Methods
+### 🔹 Machine Learning Methods
 
-Z-Score Method
+1. **Isolation Forest**
 
-IQR Method
+   * Unsupervised learning algorithm
+   * Isolates anomalies based on random tree splits
+   * Effective for high-dimensional anomaly detection
 
-Moving Average Deviation
+2. **One-Class SVM**
 
-🔹 Machine Learning Methods
+   * Learns normal data boundary
+   * Detects deviations as anomalies
 
-Isolation Forest
+---
 
-One-Class SVM
+## 📊 Evaluation & Comparison
 
-Anomalies were detected in:
+* Compared number of anomalies detected by each method
+* Highlighted anomalies on price time series plots
+* Analyzed overlap between price and volume anomalies
+* Identified Top 10 extreme positive and negative return days
 
-Closing Price
+---
 
-Trading Volume
+## 🧠 Financial Interpretation
 
-Daily Returns
+Detected anomalies were analyzed for potential causes such as:
 
-📊 Evaluation & Visualization
+* Market-wide corrections
+* High volatility phases
+* Policy announcements
+* Sector-specific movements
 
-Anomalies highlighted on time series charts
+This bridges technical detection with real-world financial reasoning.
 
-Comparison of anomaly counts across methods
+---
 
-Overlap analysis between price & volume anomalies
+## 🛠 Tech Stack
 
-Top 10 extreme return days identified
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Scikit-learn
+* yFinance
 
-🧠 Financial Interpretation
+---
 
-Detected anomalies were analyzed in context of potential real-world events such as:
+## 🚀 How to Run the Project
 
-Market crashes
+### 1️⃣ Clone the Repository
 
-Earnings announcements
+```bash
+git clone https://github.com/Redskull2525/time-series-anomaly-detection.git
+```
 
-Economic policy changes
+### 2️⃣ Navigate to Project Folder
 
-High volatility periods
-
-🛠 Tech Stack
-
-Python
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-Seaborn
-
-Scikit-Learn
-
-yFinance
-
-🚀 How to Run
-
-Clone the repository:
-
-git clone https://github.com/your-username/time-series-anomaly-detection.git
-
-
-Navigate into project:
-
+```bash
 cd time-series-anomaly-detection
+```
 
+### 3️⃣ Install Dependencies
 
-Install dependencies:
-
+```bash
 pip install -r requirements.txt
+```
 
+### 4️⃣ Run the Script
 
-Run the script:
-
+```bash
 python src/anomaly_detection.py
+```
 
-📌 Key Learnings
+---
 
-Time series preprocessing
+## 📌 Key Learning Outcomes
 
-Financial return modeling
+* Time Series Data Handling
+* Financial Return Modeling
+* Statistical Outlier Detection
+* Unsupervised Machine Learning
+* Model Comparison & Interpretation
+* End-to-End Data Science Pipeline Implementation
 
-Statistical outlier detection
+---
 
-Unsupervised ML anomaly detection
+## 🔮 Future Improvements
 
-Interpretation of financial data anomalies
+* Add interactive dashboard (Streamlit)
+* Integrate deep learning Autoencoder
+* Perform anomaly clustering analysis
+* Add event-based financial news mapping
 
-👨‍💻 Author
+---
 
-Abhishek Shelke
-MSc Computer Science | Aspiring ML Engineer
+## 👨‍💻 Author
 
-GitHub: https://github.com/Redskull2525
+**Abhishek Shelke**
+MSc Computer Science | Aspiring Machine Learning Engineer
+
+GitHub: [https://github.com/Redskull2525](https://github.com/Redskull2525)
+LinkedIn: [https://www.linkedin.com/in/abhishek-s-b98895249](https://www.linkedin.com/in/abhishek-s-b98895249)
